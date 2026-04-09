@@ -36,7 +36,7 @@
    - [Deposit handling](#deposit-handling)
    - [Why database locking was chosen](#why-database-locking-was-chosen)
 10. [Error Handling](#error-handling)
-11. [Suggested Project Structure](#suggested-project-structure)
+11. [Project Structure](#project-structure)
 12. [Design Tradeoffs](#design-tradeoffs)
 13. [Testing Strategy](#testing-strategy)
 14. [Local Reviewer Experience](#local-reviewer-experience)
@@ -235,11 +235,11 @@ The system uses four main tables.
 
 Represents the primary HSA account and stores the current available balance.
 
-Suggested fields:
+Fields:
 
 - `id`
 - `account_holder_name`
-- `email` or `external_user_id`
+- `email`
 - `balance`
 - `created_at`
 - `updated_at`
@@ -253,11 +253,11 @@ Notes:
 
 Represents the virtual debit card associated with an HSA account.
 
-Suggested fields:
+Fields:
 
 - `id`
 - `account_id`
-- `card_token` or `card_number_last4`
+- `card_token`
 - `status`
 - `issued_at`
 
@@ -270,7 +270,7 @@ Notes:
 
 Represents money added to an HSA account.
 
-Suggested fields:
+Fields:
 
 - `id`
 - `account_id`
@@ -285,7 +285,7 @@ Notes:
 
 Represents each purchase attempt, whether approved or declined.
 
-Suggested fields:
+Fields:
 
 - `id`
 - `account_id`
@@ -450,7 +450,7 @@ For transaction declines, the API should still persist a transaction record with
 
 ---
 
-## Suggested Project Structure
+## Project Structure
 
 ```text
 backend/
